@@ -168,6 +168,14 @@ def fact3(n, accum):
     else:
         return fact3(n-1, accum*identity(n))
 
+def sq(x): return x*x
+
+@make_tail_recursive
+def sum_squares(n, accum):
+    if n < 1:
+        return accum
+    else:
+        return sum_squares(n-1, accum+sq(n))
 
 if __name__ == '__main__':
     # print fact(1000,1)
@@ -178,3 +186,4 @@ if __name__ == '__main__':
     # print dis.dis(f)
     print fact3(5, 1)
     print fact3(1000, 1)
+    print sum_squares(1000, 0)
